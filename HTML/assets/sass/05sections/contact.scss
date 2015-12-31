@@ -1,0 +1,35 @@
+/**************************************************
+ CONTACT SECTION STYLES
+**************************************************/
+
+#contact {
+  .main {
+    header {
+      @include break-up($medium){
+        margin-bottom: 4.5em;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.contact-form {
+  @extend %major-column;
+}
+
+.contact-info {
+  @extend %minor-column;
+  max-width: none;
+  margin-bottom: 3em;
+}
+
+.contact-info {
+  p, li, address {
+    font-size: 1.4em;
+  }
+}
+
+.ask-form {
+  margin-top: 4.5em;
+}

@@ -1,0 +1,5 @@
+// @codekit-append "smoothscroll.js"
+// @codekit-append "flexslider.js"
+// @codekit-append "fitvids.js"
+// @codekit-append "functions.js"
+// @codekit-append "ios-orientationchange-fix.js"

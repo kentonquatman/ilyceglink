@@ -1,0 +1,149 @@
+/**************************************************
+ SIDEBAR STYLES
+**************************************************/
+
+.sidebar {
+  @extend %minor-column;
+  max-width: 30em;
+  margin: 0 auto;
+  @include break-up($medium){
+    max-width: none;
+  }
+  aside {
+    position: relative;
+    margin: 0 auto 1.5em;
+    padding: 4em 1em .5em;
+    background-color: $sidebar-bg;
+    border: 1px solid $sidebar-border;
+    @include break-up($medium){ width: auto }
+    h3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 0 .5em;
+      padding: .5em .75em;
+      background-color: $sidebar-cap-bg;
+      color: $sidebar-cap-text;
+      font-size: 1.8em;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+    }
+    li {
+      @include font-size(16);
+      margin: .25em 0;
+      line-height: normal;
+      font-family: $futura;
+      font-size: 1.6em;
+      @include break-up($large){
+        @include font-size(18);
+      }
+      a {
+        @include border-radius();
+        display: block;
+        padding: .25em .5em;
+        background-color: $sidebar-subnav-link-bg;
+        color: $sidebar-subnav-link-text;
+        &:hover, 
+        &:focus {
+          background-color: $sidebar-subnav-link-hover;
+        }
+      }
+    }
+    p {
+      margin: .5em 0;
+      font-size: 1.4em;
+    }
+    .button {
+      margin-top: 1.5em;
+      font-size: 1.6em;
+    }
+  }
+}
+
+.twitter-box {
+  .sidebar & {
+    padding: 1.5em 2em 4em;
+    background: #f5f8fa url('../img/graphics/twitter-bg-01.svg') center center no-repeat;
+    background-size: auto;
+    border: 1px solid #e1e8ed;
+    color: #292f33;
+    h3 {
+      @include font-size(16);
+      top: auto;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+      a {
+        display: block;
+        padding: .5em 1em;
+        background-color: $twitter-blue;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: darken($twitter-blue,10%);
+          color: $white;
+        }
+      }
+    }
+    ul {
+      margin: 1em 0;
+    }
+    li {
+      margin: 0;
+      span {
+        @include font-size(14);
+        position: relative;
+        z-index: 2;
+        display: block;
+        padding: .5em 0;
+        font-style: italic;
+        font-family: $body-font;
+        line-height: 1.8;
+      }
+      a {
+        @include border-radius(0);
+        display: inline;
+        padding: 0;
+        background-color: transparent;
+        color: $twitter-blue;
+        &:hover,
+        &:focus {
+          background-color: transparent;
+          color: darken($twitter-blue,15%);
+        }
+        &.twitter_time {
+          @include font-size(11);
+          position: relative;
+          z-index: 2;
+          display: block;
+          color: $body-text;
+          font-family: $sans-serif;
+          font-style: normal;
+          text-align: right;
+        }
+      }
+    }
+  }
+  br { display: none }
+}
+
+.tp_recent_tweets {
+  overflow: hidden;
+  float: none;
+  clear: none;
+}
+
+.tp_recent_tweets li {
+  background: transparent;
+  padding: 0;
+  float: none;
+  clear: none;
+  line-height: normal;
+  list-style: none;
+}

@@ -1,0 +1,11 @@
+/**************************************************
+ BLOG SECTION STYLES
+**************************************************/
+
+.blog-post {
+  .main & { @extend %article-page }
+}
+
+.blog-feed {
+  @extend %article-list;
+}

@@ -1,0 +1,275 @@
+/**************************************************
+ MAIN SECTION STYLES
+**************************************************/
+
+.main {
+  @extend %clearfix;
+  background-color: $main-bg;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  @include break-up($medium){
+    padding-top: 4.5em;
+    padding-bottom: 6em;
+  }
+  @include break-up($large){
+    padding-top: 6em;
+    padding-bottom: 9em;
+  }
+  &__content {
+    @extend %major-column;
+    margin-bottom: 4.5em;
+  }
+  header {
+    margin-bottom: 3em;
+    padding-bottom: 3em;
+    border-bottom: 1px solid $border-color;
+    h1 {
+      margin: 0;
+      color: $headline-text;
+      font-family: $headline-font;
+    }
+  }
+  @include break-up($small){
+    &__content {
+      margin-bottom: 6em;
+    }
+  }
+  @include break-up($medium){
+    padding-top: 4.5em;
+    &.no-hero {
+      padding-top: ($fixed-header-padding + 4.5em);
+    }
+    &__content {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 18em;
+  padding: 0;
+  background-color: $hero-bg;
+  img {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    margin-left: -31.5em;
+    width: 63em;
+    max-width: none;
+  }
+  @include break-up($small){
+    height: 24em;
+    img {
+      width: 84em;
+      margin-left: -42em;
+    }
+  }
+  @include break-up($medium){
+    margin-top: $fixed-header-padding;
+  }
+  @include break-up($large){
+    height: 36em;
+    img {
+      width: 126em;
+      margin-left: -63em;
+    }
+  }
+}
+
+/**************************************************
+ ARTICLE LIST
+**************************************************/
+
+%article-list {
+  article {
+    margin-bottom: 3em;
+    background-color: $article-bg;
+    border: 1px solid $article-border;
+    figure {
+      margin: -1px -1px 0 -1px;
+      img { display: block }
+    }
+    .post-summary {
+      padding: 2em;
+      p { font-size: 1.4em }
+    }
+    header {
+      margin-bottom: 1.5em;
+      padding-bottom: 0;
+      border-bottom: none;
+      h2 { margin: 0 }
+      .post-details {
+        margin: 1.5em 0 0;
+        padding: .5em 0;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        color: $article-details-text;
+        font-family: $sans-serif;
+        font-size: 1.2em;
+        text-transform: uppercase;
+      }
+      .spacer {
+        margin: 0 .5em;
+        color: $border-color;
+      }
+    }
+    footer {
+      @extend %clearfix;
+      background-color: $article-footer-bg;
+      a {
+        display: block;
+        float: right;
+        margin: 0 -1px -1px 0;
+        padding: 1.25em 1.5em;
+        background-color: $article-footer-button-bg;
+        color: $article-footer-button-text;
+        font-family: $button-font;
+        font-size: 1.4em;
+        text-transform: uppercase;
+        &:hover,
+        &:focus {
+          background-color: darken($article-footer-button-bg,10%);
+        }
+      }
+    }
+    @include break-up($small){
+      .post-summary { padding: 3em }
+    }
+  }
+}
+
+/**************************************************
+ ARTICLE PAGE
+**************************************************/
+
+%article-page {
+  @extend %major-column;
+  margin-bottom: 4.5em;
+  @include break-up($medium){
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  header {
+    @extend %clearfix;
+    margin-bottom: 3em;
+    padding-bottom: 0;
+    h1 {
+      margin: 0 0 .5em;
+      color: $headline-text;
+      font-family: $headline-font;
+    }
+    .spacer {
+      margin: 0 .5em;
+      color: $border-color;
+    }
+  }
+  .post-image {
+    margin-bottom: 4.5em;
+    img {
+      display: block;
+    }
+    figcaption {
+      display: block;
+      padding-top: 1em;
+    }
+  }
+  footer {
+    @extend %clearfix;
+    margin-top: 4.5em;
+    background-color: $article-footer-bg;
+    a {
+      float: left;
+      display: block;
+      padding: 1.25em 1.5em;
+      background-color: $article-footer-button-bg;
+      color: $article-footer-button-text;
+      font-family: $button-font;
+      font-size: 1.4em;
+      text-transform: uppercase;
+      &:hover,
+      &:focus {
+        background-color: darken($article-footer-button-bg,10%);
+      }
+    }
+    @include break-up($medium){ margin-top: 6em }
+    @include break-up($large){ margin-top: 9em }
+  }
+}
+
+.post-top {
+  &__date {
+    margin: 0;
+    padding: .75em 0;
+    border-top: 1px solid $border-color;
+    color: $article-details-text;
+    font-family: $sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+  }
+  &__comments {
+    margin: 0;
+    padding: .75em 0;
+    border-top: 1px solid $border-color;
+    font-family: $sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    @include break-up($small){
+      float: right;
+      margin-top: -2.25em;
+      padding: 0;
+      border-top: none;
+    }
+  }
+}
+
+.share-links {
+  list-style: none;
+  margin: 0;
+  padding: .75em 0;
+  border-top: 1px solid $border-color;
+  li {
+    @include inline-block();
+    margin: 0 0 0 .25em;
+    font-size: 1em;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  span {
+    margin-right: .25em;
+    color: $article-details-text;
+    font-family: $sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+  }
+  a {
+    @include border-radius(50%);
+    display: block;
+    height: 2.4em;
+    width: 2.4em;
+    background-color: $button-bg;
+  }
+  svg {
+    height: 2.4em;
+    width: 2.4em;
+    fill: $share-icon;
+  }
+  .facebook a { background-color: $facebook-blue }
+  .twitter a { background-color: $twitter-blue }
+  .googleplus a { background-color: $google-red }
+}
+
+.button {
+  &.press-kit {
+    max-width: 18em;
+    margin: 1.5em auto;
+    @include break-up($medium){
+      @include font-size(21);
+      margin: 2em 0;
+      max-width: 15em;
+    }
+  }
+}

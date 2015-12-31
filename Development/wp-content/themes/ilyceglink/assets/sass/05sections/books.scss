@@ -1,0 +1,48 @@
+/**************************************************
+ BOOKS SECTION STYLES
+**************************************************/
+
+.books-feed {
+  article {
+    @extend %clearfix;
+    margin-bottom: 1.5em;
+    padding: 1.5em;
+    border: 1px solid $article-border;
+    @include break-up($small){ padding: 3em }
+    h2 {
+      margin: 0 0 .5em;
+      padding-bottom: .5em;
+      border-bottom: 1px solid $border-color;
+    }
+    .button {
+      margin-top: 1.5em;
+      @include break-up($small){
+        float: left;
+        clear: left;
+        width: 25%;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.book-cover {
+  margin: 0 0 3em;
+  @include break-up($small){
+    float: left;
+    width: 25%;
+    margin-bottom: 1.5em;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.book-summary {
+  @include break-up($small){
+    float: right;
+    width: 70%;
+    padding-top: 3em;
+  }
+}

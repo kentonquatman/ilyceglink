@@ -1,0 +1,42 @@
+/**************************************************
+ BUTTON STYLES
+**************************************************/
+
+%button-shared {
+  @extend %transition;
+  @include border-radius(.25em);
+  @include font-size(18);
+  display: block;
+  padding: .75em 1.5em;
+  font-family: $button-font;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+%button-standard {
+  @include button();
+}
+
+%button-dark {
+  @include button($dk-teal,$white);
+}
+
+%button-alert {
+  @include button($orange,$white);
+}
+
+%button-transparent {
+  background-color: transparent;
+  border: 2px solid $dk-teal;
+  color: $dk-teal;
+  &:hover, 
+  &:focus {
+    background-color: $dk-teal;
+    color: $white;
+  }
+}
+
+.button {
+  @extend %button-shared;
+  @extend %button-standard;
+}

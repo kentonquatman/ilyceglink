@@ -1,0 +1,310 @@
+/**************************************************
+ HOME - TOP SECTION STYLES
+**************************************************/
+
+.home-features {
+  overflow: hidden;
+  padding: 0;
+  background-color: $home-top-bg;
+  .slides {
+    max-width: 180em;
+    margin: 0 auto;
+    li {
+      @include font-size(10);
+      min-height: 54em;
+      padding: 4.5em $side-padding;
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+  aside {
+    @include border-radius();
+    @include box-shadow();
+    position: relative;
+    overflow: hidden;
+    .aside-text {
+      padding: 1.5em;
+      background-color: $slides-aside-summary-bg;
+      background-color: transparentize($slides-aside-summary-bg,0.1);
+      color: $slides-aside-summary-text;
+      p { margin: .5em 0 }
+    }
+    .aside-form {
+      padding: 1.5em;
+      background-color: $slides-aside-form-bg;
+      background-color: transparentize($slides-aside-form-bg,0.1);
+      h4 {
+        margin: 0 0 .5em;
+        color: $slides-aside-form-text;
+      }
+    }
+    h2 {
+      margin: 0 0 .5em;
+      padding-bottom: .25em;
+      border-bottom: 1px solid $slides-aside-border;
+      color: $slides-aside-heading-text;
+    }
+    p { @include font-size(14) }
+    footer {
+      overflow: hidden;
+      background-color: $slides-aside-footer-bg;
+      background-color: transparentize($slides-aside-footer-bg,0.1);
+    }
+    .button {
+      @include border-radius(0);
+      @include font-size(16);
+      float: right;
+      border: none;
+    }
+  }
+  .mailing-list {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    input[type="text"]{
+      margin: 0 0 .75em;
+      border: none;
+    }
+    input[type="submit"]{
+      margin: 0;
+      border: none;
+    }
+  }
+  @include break-up($small){
+    aside { float: right; width: 50% }
+  }
+  @include break-up($medium){
+    padding-top: $fixed-header-padding;
+    border-bottom: 1em solid $home-slider-border;
+    .mailing-list {
+      input[type="text"]{ margin-bottom: 1em }
+      input[type="submit"]{ width: 48.75% }
+      fieldset {
+        input[type="text"]{
+          float: left;
+          width: 48.75%;
+          &.last-name {
+            margin-left: 2.5%;
+          }
+        }
+      }
+    }
+  }
+  @include break-up($large){
+    aside { width: 45em }
+  }
+  @include break-up(1260){
+    aside {
+      right: 50%;
+      margin-right: -54em;
+    }
+  }
+}
+
+/**************************************************
+ HOME - MIDDLE SECTION STYLES
+**************************************************/
+
+.home-middle {
+  padding: 4.5em $side-padding 6em;
+  background-color: $main-bg;
+  .heading {
+    margin: 0 0 1.5em;
+    padding: .5em .75em;
+    background-color: $lt-gray;
+    color: $dk-teal;
+    font-size: 1.4em;
+    text-transform: uppercase;
+  }
+  &__blog {
+    @extend %major-column;
+    @extend %article-list;
+    margin-bottom: 4.5em;
+  }
+  &__media {
+    @extend %minor-column;
+    @extend %article-list;
+  }
+  .button {
+    @extend %button-dark;
+    margin-top: 1.5em;
+  }
+  @include break-up($medium){
+    padding-top: 6em;
+    padding-bottom: 9em;
+    &__blog {
+      margin-bottom: 0;
+      .button {
+        margin-top: 3em;
+        font-size: 2.1em;
+      }
+    }
+    &__media {
+      article {
+        margin-bottom: 2em;
+        background-color: $home-media-article-bg;
+        border-color: $home-media-article-border;
+        .post-summary {
+          padding: 1.5em;
+          p { font-size: 1.2em }
+        }
+        header {
+          h2 { font-size: 2.4em }
+          .post-details {
+            border-color: $home-media-border;
+            font-size: 1em;
+          }
+          .spacer { color: $home-media-border }
+        }
+        footer {
+          background-color: $home-media-footer-bg;
+          a {
+            background-color: $home-media-footer-button;
+            font-size: 1.1em;
+            &:hover,&:focus { background-color: $home-media-footer-button-hover }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**************************************************
+ HOME - BOTTOM SECTION STYLES
+**************************************************/
+
+.home-bottom {
+  @extend %clearfix;
+  padding: 0;
+  background-color: $home-bottom-bg;
+  @include break-up($medium){
+    padding: 4.5em $side-padding;
+  }
+  article {
+    @extend %major-column;
+    padding: 4.5em $side-padding;
+    text-align: center;
+    h3 {
+      margin: 0 0 1em;
+    }
+    @include break-up($medium){
+      padding: 0;
+      text-align: left;
+    }
+  }
+  .work-categories {
+    list-style: none;
+    margin: 3em 0 0;
+    li {
+      @include font-size(10);
+      margin: 0 0 1.5em;
+      padding: 2.25em 1.5em 2em;
+      background-color: $white;
+      border: 1px solid darken($home-bottom-bg,10%);
+      h4 {
+        margin: 0 0 .75em;
+        padding-bottom: .25em;
+        border-bottom: 1px solid $border-color;
+      }
+      p {
+        @include font-size(12);
+        margin: 0;
+      }
+      .button {
+        @extend %button-transparent;
+        margin: 1.5em 0 0;
+        padding: .25em .75em;
+      }
+    }
+    @include break-up($small){
+      li {
+        @include inline-block();
+        max-width: 24em;
+        margin: 0 .5em 1.5em;
+      }
+    }
+    @include break-up($medium){
+      width: 102.5%;
+      margin-left: -2.5%;
+      li {
+        float: left;
+        display: block;
+        max-width: none;
+        width: 47.5%;
+        margin: 0 0 1.5em 2.5%;
+      }
+    }
+    @include break-up($large){
+      width: 101.33%;
+      margin-left: -1.33%;
+      li {
+        width: 32%;
+        margin-left: 1.33%;
+      }
+    }
+  }
+  aside {
+    @extend %minor-column;
+    padding: 4.5em $side-padding;
+    background-color: $dk-teal;
+    color: $white;
+    text-align: center;
+    figure {
+      max-width: 24em;
+      margin: 0 auto 1.5em;
+    }
+    h3 {
+      margin: 0 0 1em;
+      color: $teal;
+    }
+    h4 {
+      margin: .5em 0;
+      color: $white;
+    }
+    p {
+      @include font-size(14);
+      margin: 0;
+    }
+    .button {
+      max-width: 12em;
+      margin: 1em auto 0;
+    }
+    @include break-up($medium){
+      margin-top: 6em;
+      padding: 1.5em;
+      figure {
+        max-width: none;
+        width: 60%;
+      }
+    }
+  }
+}
+
+/**************************************************
+ AS SEEN ON BAR
+**************************************************/
+
+.as-seen-on {
+  padding: 3em $side-padding;
+  background-color: $as-seen-on-bg;
+  text-align: center;
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+  li {
+    @include inline-block();
+    margin: .25em .5em;
+  }
+  img {
+    @include opacity(0.75);
+  }
+  @include break-up($medium){
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+  @include break-up($x-large){
+    padding-top: .5em;
+    padding-bottom: .5em;
+  }
+}

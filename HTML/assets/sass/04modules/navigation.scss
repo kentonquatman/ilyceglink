@@ -1,0 +1,252 @@
+/**************************************************
+ NAVIGATION STYLES
+**************************************************/
+
+nav {
+  font-family: $nav-font;
+  ol {
+    list-style: none;
+    margin: 0;
+  }
+  li {
+    margin: 0;
+    line-height: normal;
+  }
+}
+
+/**************************************************
+ HEADER NAVIGATION STYLES
+**************************************************/
+
+.site-navigation {
+  position: relative;
+  display: none;
+  background-color: darken($narrow-nav-bg,20%);
+  @include break-up($medium){
+    display: block !important;
+    float: right;
+    margin-top: 1em;
+    padding-right: 5em;
+    background-color: transparent;
+  }
+  .primary-nav {
+    @extend %clearfix;
+    padding: 2px;
+    li {
+      font-size: 1.8em;
+      position: relative;
+      float: left;
+      width: 50%;
+      padding: 1px;
+      -webkit-font-smoothing: antialiased;
+      ol {
+        @extend %transition;
+        display: none;
+      }
+      li {
+        font-size: (16/18)+em;
+        text-align: center;
+      }
+    }
+    a {
+      @include border-radius(.25em);
+      display: block;
+      padding: .25em .5em;
+      color: $narrow-nav-text;
+      background-color: $narrow-nav-bg;
+      &:hover, 
+      &:focus {
+        background-color: $narrow-nav-bg-hover;
+        color: $narrow-nav-text-hover;
+      }
+    }
+    @include break-up($medium){
+      float: right;
+      margin-top: 1.125em;
+      padding: 0;
+      li {
+        @include inline-block;
+        @include font-size(18);
+        float: none;
+        width: auto;
+        margin-right: 1em;
+        padding: 0 0 1.25em;
+        border-top: none;
+        border-left: none;
+        &:hover {
+          ol { display: block }
+        }
+        ol {
+          @include border-radius;
+          @include box-shadow;
+          position: absolute;
+          top: 2.125em;
+          left: 50%;
+          width: 9em;
+          padding: .25em;
+          margin-left: -4.5em;
+          background-color: $subnav-bg;
+        }
+        li {
+          @include font-size(14);
+          display: block;
+          margin: 0;
+          padding-bottom: 0;
+          a {
+            @include border-radius(.125em);
+            padding: .25em;
+            color: $subnav-link-text;
+            background-color: transparent;
+            &:hover,&:focus {
+              background-color: $subnav-link-bg-hover;
+              color: $subnav-link-text-hover;
+            }
+          }
+        }
+      }
+      a {
+        @include border-radius(0);
+        padding: 0;
+        background-color: transparent;
+        color: $nav-link-text;
+        &:hover,
+        &:focus {
+          background-color: transparent;
+          color: $nav-link-text-hover;
+        }
+      }
+    }
+    @include break-up($large){
+      margin-top: 1em;
+      li {
+        @include font-size(21);
+        margin-right: 1.5em;
+        padding-bottom: .75em;
+        ol { top: 2em }
+        li { @include font-size(18) }
+      }
+    }
+  }
+}
+
+/**************************************************
+ SEARCH BAR STYLES
+**************************************************/
+
+.search-bar {
+  @extend %transition;
+  form {
+    padding: 2px 2px 0;
+    background-color: transparent;
+    border: none;
+  }
+  input {
+    @extend %transition;
+    @include border-radius(.25em);
+    border: none;
+    padding: .75em 1em;
+  }
+  .search-toggle {
+    @include border-radius(.25em);
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    height: 5em;
+    width: 5em;
+    background-color: $search-toggle-bg;
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 2.4em;
+      width: 2.4em;
+      margin-top: -1.2em;
+      margin-left: -1.2em;
+      fill: $white;
+    }
+  }
+  @include break-up($medium){
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 5em;
+    height: 5em;
+    form {
+      padding: 0;
+    }
+    input {
+      height: 50px;
+      margin-right: 1px;
+      padding: .5em 0;
+      border: 1px solid $teal;
+    }
+    .search-toggle {
+      display: block;
+      .search-icon {display:block}
+      .close-icon {display:none}
+    }
+    &.open {
+      width: 100%;
+      .search-toggle {
+        @include border-left-radius(0);
+        .search-icon {display:none}
+        .close-icon {display:block}
+      }
+      input { padding: .5em 4em .5em 1em }
+    }
+  }
+}
+
+/**************************************************
+ NAVIGATION TOGGLE BUTTON
+**************************************************/
+
+.nav-toggle {
+  @include border-radius(0.25em);
+  display: block;
+  position: absolute;
+  right: $side-padding;
+  bottom: 1em;
+  height: 5em;
+  width: 5em;
+  background-color: $nav-toggle-bg;
+  @include break-up($medium){display:none}
+  .line {
+    @extend %transition;
+    @include border-radius(0.5em);
+    display: block;
+    overflow: hidden;
+    width: 3.6em;
+    height: 0;
+    padding-top: .5em;
+    background: $nav-toggle-icon;
+    &.topbar,
+    &.middlebar,
+    &.bottombar {
+      position: absolute;
+      left: 0.7em;
+    }
+    &.middlebar {top:2.25em}
+    &.topbar {top:1.25em}
+    &.bottombar {bottom:1.25em}
+  }
+  &:hover,
+  &:focus {
+    .topbar {top:1em}
+    .bottombar {bottom:1em}
+  }
+  &.open {
+    .topbar {
+      @include rotate(45deg);
+      top: 2.25em;
+    }
+    .bottombar {
+      @include rotate(-45deg);
+      bottom: 2.25em;
+    }
+    .middlebar {@include opacity(0)}
+  }
+}

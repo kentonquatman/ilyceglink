@@ -1,0 +1,69 @@
+/**************************************************
+ PAGINATION STYLES
+**************************************************/
+
+.pagination {
+  @include border-radius;
+  position: relative;
+  height: 4.2em;
+  margin-top: 4.5em;
+  @include break-up($small){
+    height: auto;
+    background-color: transparent;
+  }
+  .next, 
+  .prev {
+    @extend %button-shared;
+    @extend %button-standard;
+    @include font-size(16);
+    position: absolute;
+    top: 0;
+    width: 50%;
+    padding: .75em 1em;
+    @include break-up($small){
+      @include border-radius(0);
+      @include font-size(14);
+      height: (60/14)+em;
+      width: 7.5em;
+      padding: 1.625em 1em 0;
+    }
+  }
+  .prev {
+    @include border-right-radius(0);
+    left: 0;
+  }
+  .next {
+    @include border-left-radius(0);
+    right: 0;
+  }
+  ol {
+    display: none;
+    list-style: none;
+    height: 6em;
+    margin: 0;
+    padding: 1.25em 0 0;
+    background-color: $sidebar-bg;
+    border: 1px solid $sidebar-border;
+    text-align: center;
+    @include break-up($small){
+      display: block;
+    }
+  }
+  li {
+    @include font-size(18);
+    display: inline;
+    margin: 0 0 0 .5em;
+    font-family: $futura;
+    color: $lt-blue;
+    &:before {
+      content: $vertical-bar;
+      margin-right: .5em;
+    }
+    &:first-child {
+      margin-left: 0;
+      &:before {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+/**************************************************
+ COMMENTS MODULE STYLES
+**************************************************/
+
+.comments {
+  margin-top: 6em;
+  h2 {
+    .comments__jump-link {
+      white-space: nowrap;
+      font-size: (16/30)+em;
+      @include break-up($small){
+        float: right;
+        margin-top: .5em;
+      }
+    }
+  }
+  &__list {
+    list-style: none;
+    margin: 0 0 3em;
+    border-top: 1px solid $border-color;
+    li {
+      padding: .5em 0 1.5em;
+      border-bottom: 1px solid $border-color;
+      font-size: 1em;
+      small {
+        display: block;
+        margin: 1.5em 0 0;
+        font-family: $sans-serif;
+      }
+    }
+  }
+  &__form {
+    input[type="submit"]{
+      @include break-up($large){
+        width: 50%;
+      }
+    }
+  }
+}

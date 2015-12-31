@@ -1,0 +1,15 @@
+/**************************************************
+ MEDIA SECTION STYLES
+**************************************************/
+
+.media-post {
+  @extend %article-page;
+}
+
+.media-feed {
+  @extend %article-list;
+}
+
+.media-video {
+  margin-bottom: 3em;
+}

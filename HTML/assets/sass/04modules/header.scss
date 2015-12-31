@@ -1,0 +1,39 @@
+/**************************************************
+ HEADER STYLES
+**************************************************/
+
+.site-header {
+  @extend %clearfix;
+  @include box-shadow();
+  position: relative;
+  z-index: 20;
+  background-color: $header-bg;
+  @include break-up($medium){
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 7em;
+    padding: 0 $side-padding;
+  }
+  h1 {
+    @include font-size(10);
+    margin: 0;
+    padding: 1.75em $side-padding;
+    @include break-up($medium){
+      float: left;
+      padding: 1.75em 0;
+    }
+    a {
+      display: block;
+      overflow: hidden;
+      height: 0;
+      width: 12.5em;
+      padding-top: 3.5em;
+      background: url("../img/logo/ilyce-glink-header-logo-01.svg") 50% 50% no-repeat;
+      background-size: auto;
+      .ltie10 & { background-image: url("../img/logo/ilyce-glink-header-logo-01.png") }
+      &:hover,&:focus { @include opacity(0.75) }
+    }
+  }
+}

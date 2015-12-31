@@ -1,0 +1,141 @@
+/**************************************************
+ SLIDESHOW STYLES
+**************************************************/
+
+.slides {
+  @extend %clearfix;
+  margin: 0;
+  list-style: none;
+  li {
+    display: none;
+    margin: 0;
+    -webkit-backface-visibility: hidden;
+  }
+  .no-js & > li:first-child { display: block }
+}
+
+.home-features {
+  position: relative;
+  zoom: 1;
+  .slides { zoom: 1 }
+}
+
+/* Viewport Styles */
+
+.flex-viewport {
+  @extend %transition;
+  .loading & { min-height: 30em }
+}
+
+/* Directional Nav */
+
+.flex-direction-nav {
+  display: none;
+  margin: 0;
+  list-style: none;
+  @include break-up($medium){display:block}
+  li {
+    @include font-size(10);
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    margin: -1.8em 0 0;
+  }
+  a {
+    @include box-shadow();
+    @include opacity(0);
+    display: block;
+    overflow: hidden;
+    height: 0;
+    width: 3.6em;
+    padding-top: 3.6em;
+    background: $slides-direction-bg url("../img/graphics/slide-arrows.svg") 0 0 no-repeat;
+    background-size: 3.6em 7.2em;
+    .ltie9 & { background-image: url("../img/graphics/slide-arrows.png") }
+    .home-features:hover & {
+      @include opacity(.5);
+      &:hover {@include opacity(1)}
+    }
+  }
+  .flex-nav-prev {
+    left: 0;
+    a {
+      @include border-right-radius();
+      background-position: 0 0;
+    }
+  }
+  .flex-nav-next {
+    right: 0;
+    a {
+      @include border-left-radius();
+      background-position: 0 -3.6em;
+    }
+  }
+  .flex-disabled {
+    opacity: 0!important;
+    filter: alpha(opacity=0);
+    cursor: default;
+  }
+}
+
+/* Pager Styles */
+
+.flex-control-nav {
+  overflow: hidden;
+  margin: 0;
+  padding: 2px;
+  list-style: none;
+  background-color: $slides-pager-bg;
+  li {
+    @include font-size(10);
+    zoom: 1;
+    width: 20%;
+    float: left;
+    margin: 0;
+    padding: 2px;
+    a {
+      @include border-radius();
+      overflow: hidden;
+      display: block;
+      height: 0;
+      padding-top: 3em;
+      background-color: $slides-pager-marker;
+    }
+    .flex-active {
+      background-color: $slides-pager-marker-active;
+    }
+  }
+  .flexbox & {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    li {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+    }
+  }
+  @include break-up($medium){
+    @include border-top-radius();
+    display: block;
+    position: absolute;
+    z-index: 5;
+    bottom: -4px;
+    right: $side-padding;
+    li {
+      display: block;
+      width: auto;
+      a {
+        padding-top: 2em;
+        width: 2em;
+      }
+    }
+  }
+}
