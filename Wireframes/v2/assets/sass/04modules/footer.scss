@@ -1,0 +1,127 @@
+/**************************************************
+ FOOTER STYLES
+**************************************************/
+
+%footer-bg {
+  background-color: $footer-bg;
+}
+
+.site-footer {
+  @extend %clearfix;
+  padding: 4.5em $side-padding;
+  color: $footer-text;
+  text-align: center;
+  @include break-up($small){text-align:left}
+  @include break-up($large){padding:6em $side-padding}
+  &__links {
+    margin-bottom: 3em;
+  }
+  h2 {
+    margin: 0 0 .5em;
+  }
+  nav {
+    ol {
+      border-top: 1px solid lighten($footer-bg,10%);
+    }
+    li {
+      margin: .75em 0;
+      text-transform: uppercase;
+      ol {display:none}
+    }
+    .legal-links {
+      li {
+        @include font-size(14);
+        text-transform: none;
+      }
+    }
+  }
+  aside {
+    @include border-radius(.25em);
+    margin-bottom: 3em;
+    padding: 1.5em;
+    background-color: $lt-gray;
+    color: $body-text;
+    h5 {
+      margin: .25em 0 .75em;
+      text-align: center;
+    }
+    form {
+      @include border-radius(0);
+      padding: 0;
+      background-color: transparent;
+      border: none;
+    }
+    input[type="text"]{
+      margin-bottom: .5em;
+    }
+    input[type="submit"]{
+      width: 100%;
+      margin-top: 0;
+      padding: .5em;
+    }
+  }
+  .social-links {
+    list-style: none;
+    margin: 0;
+    padding-top: 1.5em;
+    border-top: 1px solid lighten($footer-bg,10%);
+    li {
+      @include inline-block;
+      @include font-size(10);
+      margin: .25em;
+    }
+    a {
+      @include border-radius(50%);
+      display: block;
+      width: 3em;
+      height: 3em;
+      background-color: $black;
+      color: $white;
+    }
+    svg {
+      height: 3em;
+      width: 3em;
+      fill: $white;
+    }
+  }
+  @include break-up($small){
+    &__links {
+      margin-right: 50%;
+      margin-bottom: 0;
+    }
+    aside {
+      float: right;
+      width: 47.5%;
+      margin-bottom: 4.5em;
+    }
+    .copyright {
+      float: right;
+      clear: right;
+      margin-top: -1.5em;
+    }
+  }
+  @include break-up($medium){
+    &__links {
+      margin-right: 35%;
+      padding-top: 1.5em;
+    }
+    nav {
+      ol {
+        margin: 1.5em 0;
+        border-top: none;
+      }
+      li {
+        @include inline-block(baseline);
+        margin: .5em 1em .5em 0;
+      }
+    }
+    .social-links {
+      margin-top: 3em;
+      padding-top: 0;
+      border-top: none;
+    }
+    aside {
+      width: 30%;
+    }
+  }
+}

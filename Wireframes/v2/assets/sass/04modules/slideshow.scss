@@ -1,0 +1,133 @@
+/**************************************************
+ SLIDESHOW STYLES
+**************************************************/
+
+.slides {
+  @extend %clearfix;
+  margin: 0;
+  list-style: none;
+  li {
+    display: none;
+    margin: 0;
+    -webkit-backface-visibility: hidden;
+  }
+  .no-js & {
+    & > li:first-child {
+      display: block;
+    }
+  }
+}
+
+.home-features {
+  position: relative;
+  zoom: 1;
+  .slides {
+    zoom: 1;
+  }
+}
+
+/* Viewport Styles */
+
+.flex-viewport {
+  @extend %transition;
+  .loading & {
+    min-height: 300px;
+  }
+}
+
+/* Directional Nav */
+
+.flex-direction-nav {
+  display: none;
+  margin: 0;
+  list-style: none;
+  @include break-up($medium){display:block}
+  li {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    margin: -1.2em 0 0;
+  }
+  a {
+    @include opacity(.5);
+    display: block;
+    overflow: hidden;
+    height: 0;
+    width: 2.4em;
+    padding-top: 2.4em;
+    background-color: $black;
+    &:hover {
+      @include opacity(1);
+    }
+  }
+  .flex-nav-prev {
+    left: 0;
+  }
+  .flex-nav-next {
+    right: 0;
+  }
+  .flex-disabled {
+    opacity: 0!important;
+    filter: alpha(opacity=0);
+    cursor: default;
+  }
+}
+
+/* Pager Styles */
+
+.flex-control-nav {
+  overflow: hidden;
+  margin: 0;
+  padding: 1px;
+  list-style: none;
+  background-color: $slides-pager-bg;
+  li {
+    @include font-size(10);
+    zoom: 1;
+    width: 20%;
+    float: left;
+    margin: 0;
+    padding: 1px;
+    a {
+      overflow: hidden;
+      display: block;
+      height: 0;
+      padding-top: 3em;
+      background-color: $slides-pager-marker;
+    }
+    .flex-active {
+      background-color: $slides-pager-marker-active;
+    }
+  }
+  .flexbox & {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    li {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+    }
+  }
+  @include break-up($medium){
+    display: block;
+    position: absolute;
+    z-index: 5;
+    bottom: 1.5em;
+    right: $side-padding;
+    li {
+      display: block;
+      width: 1.5em;
+      a {
+        padding-top: 1.5em;
+      }
+    }
+  }
+}

@@ -1,0 +1,187 @@
+/**************************************************
+ MAIN SECTION STYLES
+**************************************************/
+
+.main {
+  @extend %clearfix;
+  background-color: $main-bg;
+  padding-top: 6em;
+  padding-bottom: 9em;
+  &__content {
+    @extend %major-column;
+  }
+  header {
+    margin-bottom: 3em;
+    padding-bottom: 3em;
+    border-bottom: 1px solid $border-color;
+    h1 {
+      margin: 0;
+      color: $headline-color;
+      font-family: $headline-font;
+    }
+  }
+  @include break-up($medium){
+    padding-top: ($fixed-header-padding + 4.5em);
+    &.has-hero {padding-top:4.5em}
+  }
+}
+
+.hero {
+  padding: 0;
+  background-color: $lt-gray;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  @include break-up($medium){
+    padding-top: $fixed-header-padding;
+  }
+}
+
+/**************************************************
+ ARTICLE LIST
+**************************************************/
+
+%article-list {
+  @extend %major-column;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 4.5em;
+  padding-bottom: 4.5em;
+  @include break-up($medium){
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  .article-image {
+    margin-bottom: 2.4em;
+    img {display:block}
+  }
+  article {
+    @include reset-float;
+    width: auto;
+    margin-bottom: 4.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid $border-color;
+  }
+  header {
+    margin-bottom: .5em;
+    padding-bottom: 0;
+    border-bottom: none;
+    h2 {
+      margin: 0;
+      font-family: $headline-font;
+    }
+  }
+  .article-details {
+    @include font-size(14);
+    margin: 1em 0 0;
+    span {
+      margin: 0 .5em;
+      color: $gray;
+    }
+  }
+  .more {
+    text-align: right;
+  }
+}
+
+/**************************************************
+ ARTICLE PAGE
+**************************************************/
+
+%article-page {
+  @extend %major-column;
+  margin-bottom: 4.5em;
+  @include break-up($medium){
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  article {
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 7.5em;
+  }
+  header {
+    @extend %clearfix;
+    margin-bottom: 3em;
+    padding-bottom: 0;
+    h1 {
+      margin: 0 0 .5em;
+      color: $headline-color;
+      font-family: $headline-font;
+    }
+  }
+  .post-image {
+    margin-bottom: 4.5em;
+    img {
+      display: block;
+    }
+    figcaption {
+      display: block;
+      padding-top: 1em;
+    }
+  }
+  footer {
+    @extend %clearfix;
+    margin-top: 4.5em;
+    padding: 3em 0;
+    border-top: 1px solid $border-color;
+  }
+  .back {
+    @extend %button;
+    @include float;
+    @include font-size(16);
+  }
+}
+
+.post-top {
+  &__date {
+    @include font-size(14);
+    margin: 0 0 1em;
+    color: $blog-date-color;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  &__comments {
+    @include font-size(14);
+    margin: 0;
+    padding: .625em 0;
+    border-top: 1px solid $border-color;
+    @include break-up($small){
+      text-align: right;
+    }
+  }
+}
+
+.share-links {
+  list-style: none;
+  margin: 0;
+  padding: .75em 0;
+  border-top: 1px solid $border-color;
+  @include break-up($small){
+    float: left;
+    border-top: none;
+  }
+  li {
+    @include inline-block;
+    @include font-size(10);
+    margin: 0 0 0 .25em;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  span {
+    @include font-size(14);
+    margin-right: .25em
+  }
+  a {
+    @include border-radius(50%);
+    display: block;
+    height: 2.4em;
+    width: 2.4em;
+    background-color: $black;
+  }
+  svg {
+    height: 2.4em;
+    width: 2.4em;
+    fill: $white;
+  }
+}

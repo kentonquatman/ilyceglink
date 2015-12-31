@@ -1,0 +1,324 @@
+/**************************************************
+ HOME - TOP SECTION STYLES
+**************************************************/
+
+.home-features {
+  padding: 0;
+  .slides {
+    li {
+      @include font-size(10);
+      min-height: 45em;
+      padding: 4.5em $side-padding;
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+  aside {
+    @include border-radius;
+    padding: 1.5em;
+    background-color: $slides-aside-bg;
+    color: $white;
+    h4 {
+      margin: .25em 0;
+    }
+    p {
+      @include font-size(14);
+    }
+    .button {
+      max-width: 15em;
+      background-color: $gray;
+      border: none;
+    }
+  }
+  .mailing-list {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    input {
+      margin: 1em 0 0;
+      border: none;
+    }
+    input[type="submit"]{
+      background-color: $gray;
+    }
+  }
+  @include break-up($small){
+    .mailing-list {
+      input {
+        width: 47.5%;
+      }
+      fieldset {
+        overflow: hidden;
+        input {
+          float: left;
+          margin-left: 2.5%;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+  @include break-up($medium){
+    padding-top: $fixed-header-padding;
+    .slides {
+      li {
+        padding-top: 6em;
+        padding-bottom: 0;
+      }
+    }
+    aside {
+      float: right;
+      width: 50%;
+    }
+  }
+  @include break-up(1260){
+    aside {
+      position: relative;
+      width: 45em;
+      right: 50%;
+      margin-right: -54em;
+    }
+  }
+}
+
+/**************************************************
+ AS SEEN ON BAR
+**************************************************/
+
+.as-seen-on {
+  padding: 1em $side-padding;
+  background-color: $dk-gray;
+  h5 {
+    margin: .5em 0;
+    color: $white;
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    text-align: center;
+  }
+  li {
+    @include inline-block(middle);
+    margin: .5em;
+    vertical-align: bottom;
+  }
+  img {
+    display: block;
+  }
+  @include break-up($medium){
+    h5 {
+      @include inline-block(middle);
+      width: 20%;
+      margin: 0;
+    }
+    ul {
+      @include inline-block(middle);
+    }
+    .flexbox & {
+      .inner {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+      h5 {
+        width: auto;
+        margin-right: 1em;
+        /* Flexbox Styles */
+        -webkit-box-flex: 0;
+        -moz-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+      }
+      ul {
+        -webkit-box-flex: 0;
+        -moz-box-flex: 0;
+        -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        /* Flexbox Styles */
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-box-pack: justify;
+        -moz-box-pack: justify;
+        -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+      li {
+        -webkit-box-flex: 0;
+        -moz-box-flex: 0;
+        -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+      }
+    }
+  }
+}
+
+/**************************************************
+ HOME - MIDDLE SECTION STYLES
+**************************************************/
+
+.home-middle {
+  padding: 4.5em $side-padding;
+  background-color: $white;
+  &__blog {
+    @extend %home-middle-columns;
+    margin-bottom: 3em;
+    @include break-up($medium){
+      float: left;
+      margin-bottom: 0;
+    }
+  }
+  &__media {
+    @extend %home-middle-columns;
+    @include break-up($medium){
+      float: right;
+    }
+  }
+}
+
+%home-middle-columns {
+  @include border-radius;
+  padding: 3em 1.5em;
+  border: 1px solid $border-color;
+  .heading {
+    margin: 0 0 1em;
+  }
+  article {
+    margin-bottom: 3em;
+    padding-bottom: 3em;
+    border-bottom: 1px solid $border-color;
+    p {
+      @include font-size(14);
+    }
+  }
+  figure {
+    margin-bottom: 1.5em;
+  }
+  header {
+    h2 {
+      margin: 0;
+    }
+  }
+  .post-details {
+    @include font-size(12);
+    margin: .5em 0 0;
+    span {
+      margin: 0 .5em;
+      color: $lt-gray;
+    }
+  }
+  .more {
+    margin: 1.5em 0 0;
+    text-align: right;
+  }
+  @include break-up($small){
+    padding: 3em;
+  }
+  @include break-up($medium){
+    width: 48.75%;
+    .button {
+      @include font-size(21);
+    }
+  }
+}
+
+/**************************************************
+ HOME - BOTTOM SECTION STYLES
+**************************************************/
+
+.home-bottom {
+  @extend %clearfix;
+  padding: 0;
+  background-color: $lt-gray;
+  @include break-up($medium){
+    padding: 4.5em $side-padding;
+  }
+  article {
+    padding: 4.5em $side-padding;
+    h3 {
+      margin: 0 0 .5em;
+    }
+    .button {
+      max-width: 15em;
+      margin-top: 1.5em;
+    }
+    @include break-up($medium){
+      float: left;
+      width: 65%;
+      margin-left: 0;
+      padding: 0;
+      .button {
+        @include font-size(21);
+      }
+    }
+  }
+  aside {
+    padding: 4.5em $side-padding;
+    background-color: $gray;
+    text-align: center;
+    figure {
+      max-width: 30em;
+      margin: 0 auto 1.5em;
+    }
+    h4 {
+      margin: .5em 0;
+    }
+    p {
+      @include font-size(14);
+      margin: 0;
+    }
+    .button {
+      max-width: 12em;
+      margin: 1em auto 0;
+    }
+    @include break-up($medium){
+      @include border-radius;
+      float: right;
+      width: 30%;
+      padding: 1.5em;
+      text-align: left;
+    }
+    @include break-up($large){
+      figure {
+        float: right;
+        width: 45%;
+        margin: 0 0 1.5em 1.5em;
+      }
+      .button {
+        clear: right;
+        max-width: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+/**************************************************
+ MEDIA SECTION STYLES
+**************************************************/
+
+.media-post {
+  @extend %article-page;
+}
+
+.media-feed {
+  @extend %article-list;
+}

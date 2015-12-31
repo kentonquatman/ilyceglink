@@ -1,0 +1,146 @@
+/**************************************************
+ HEADER STYLES
+**************************************************/
+
+.site-header {
+  @extend %clearfix;
+  background-color: $header-bg;
+  @include break-up($medium){
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 2em $side-padding;
+  }
+  h1 {
+    @include font-size(36);
+    margin: 0;
+    padding: .75em $side-padding;
+    @include break-up($medium){
+      float: left;
+      padding: 0;
+    }
+    a {
+      color: $header-title-text;
+    }
+  }
+}
+
+/**************************************************
+ SUBHEADER STYLES
+**************************************************/
+
+.site-subheader {
+  @extend %clearfix;
+  background-color: $lt-gray;
+  padding: 1.5em $side-padding;
+  @include break-up($medium){
+    padding-top: 9.6em;
+    padding-bottom: 2em;
+  }
+  .search-bar {
+    margin-bottom: 1.5em;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    @include break-up($small){
+      float: left;
+      width: 45%;
+      max-width: 30em;
+      margin-bottom: 0;
+    }
+    input {
+      @include font-size(14);
+      border: none;
+    }
+  }
+  .social-links {
+    list-style: none;
+    margin: 0;
+    text-align: center;
+    @include break-up($small){
+      float: right;
+      text-align: right;
+    }
+    li {
+      @include inline-block;
+      @include font-size(10);
+      margin: 0 .25em;
+      @include break-up($small){
+        margin-right: 0;
+        margin-left: .375em;
+      }
+    }
+    a {
+      @include border-radius(50%);
+      display: block;
+      width: 3em;
+      height: 3em;
+      background-color: $black;
+      color: $white;
+    }
+    svg {
+      height: 3em;
+      width: 3em;
+      fill: $white;
+    }
+    .mailing-list {
+      position: relative;
+      a {
+        @include border-radius(2em);
+        @include font-size(14);
+        width: auto;
+        height: #{(30/14)}em;
+        padding: .25em .75em 0;
+      }
+      .mailing-list__wrapper {
+        @extend %transition;
+        @include opacity(0);
+        position: absolute;
+        z-index: 5;
+        top: 1em;
+        right: -1em;
+        width: 30em;
+        text-align: center;
+      }
+      form {
+        @include box-shadow;
+        display: none;
+        padding: 1.5em 2em 2em;
+        background-color: $white;
+        border: none;
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: -10px;
+          right: 4.2em;
+          border-bottom: 10px solid $white;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+        }
+        h5 {
+          margin: 0 0 .75em;
+        }
+        input[type="text"]{
+          margin-bottom: .5em;
+        }
+        input[type="submit"]{
+          width: 100%;
+          margin-top: 0;
+          padding: .5em;
+        }
+      }
+      &.show {
+        .mailing-list__wrapper {
+          @include opacity(1);
+          top: 3.5em;
+        }
+        form {
+          display: block;
+        }
+      }
+    }
+  }
+}

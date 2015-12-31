@@ -1,0 +1,37 @@
+/**************************************************
+ SIDEBAR STYLES
+**************************************************/
+
+.comments {
+  h2 {
+    .comments__jump-link {
+      @include font-size(16);
+      white-space: nowrap;
+      @include break-up($small){
+        float: right;
+        margin-top: .5em;
+      }
+    }
+  }
+  &__list {
+    list-style: none;
+    margin: 0 0 3em;
+    border-top: 1px solid $border-color;
+    li {
+      @include font-size(10);
+      padding: .5em 0 1.5em;
+      border-bottom: 1px solid $border-color;
+      small {
+        display: block;
+        margin: 1.5em 0 0;
+      }
+    }
+  }
+  &__form {
+    input[type="submit"]{
+      @include break-up($large){
+        width: 50%;
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+/**************************************************
+ NAVIGATION STYLES
+**************************************************/
+
+nav {
+  font-family: $nav-font;
+  ol {
+    list-style: none;
+    margin: 0;
+  }
+  li {
+    margin: 0;
+    line-height: normal;
+  }
+}
+
+/**************************************************
+ HEADER NAVIGATION STYLES
+**************************************************/
+
+nav {
+  header & {
+    display: none;
+    background-color: $narrow-nav-bg;
+    text-align: center;
+    @include break-up($medium){
+      display: block !important;
+      float: right;
+    }
+    li {
+      @include font-size(18);
+      border-top: $narrow-nav-border;
+      &:first-child {
+        border-top: none;
+      }
+    }
+    a {
+      display: block;
+      padding: .75em 1em;
+      color: $narrow-nav-text;
+      &:hover, 
+      &:focus {
+        background-color: $narrow-nav-bg-hover;
+        color: $narrow-nav-text-hover;
+      }
+    }
+    @include break-up($medium){
+      margin-top: .625em;
+      background-color: transparent;
+      li {
+        @include inline-block;
+        margin-left: 1em;
+        border-top: none;
+      }
+      a {
+        padding: 0;
+        background-color: transparent;
+        color: $nav-link-text;
+        &:hover,
+        &:focus {
+          background-color: transparent;
+          color: $nav-link-text-hover;
+        }
+      }
+    }
+  }
+}
+
+/**************************************************
+ NAVIGATION TOGGLE BUTTON
+**************************************************/
+
+.nav-toggle {
+  display: block;
+  position: relative;
+  float: right;
+  width: 5em;
+  padding: 1.5em 0;
+  margin: 2.5em $side-padding 0;
+  @include break-up($medium){
+    display: none;
+  }
+  .line {
+    @extend %transition;
+    @include border-radius(.5em);
+    display: block;
+    overflow: hidden;
+    width: 5em;
+    height: 0;
+    padding-top: .5em;
+    background: $white;
+    &.topbar,
+    &.bottombar {
+      position: absolute;
+      left: 0;
+    }
+    &.topbar {top:.5em}
+    &.bottombar {bottom:.5em}
+  }
+  &:hover,
+  &:focus {
+    .topbar {top:0}
+    .bottombar {bottom:0}
+  }
+  &.open {
+    .topbar {
+      @include rotate(45deg);
+      top: 1.5em;
+    }
+    .middlebar {
+      @include opacity(0);
+    }
+    .bottombar {
+      @include rotate(-45deg);
+      bottom: 1.5em;
+    }
+  }
+}

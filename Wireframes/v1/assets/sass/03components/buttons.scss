@@ -1,0 +1,20 @@
+/**************************************************
+ BUTTON STYLES
+**************************************************/
+
+%button {
+  @extend %transition;
+  @include border-radius(.25em);
+  display: block;
+  padding: .5em 1em;
+  background-color: $button-bg;
+  border: 1px solid darken($button-bg,10%);
+  color: $button-text;
+  font-family: $button-font;
+  text-align: center;
+}
+
+.button {
+  @extend %button;
+  @include font-size(18);
+}

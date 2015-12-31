@@ -1,0 +1,77 @@
+/**************************************************
+ DEFAULT FORM STYLES
+**************************************************/
+
+form {
+  @include border-radius;
+  padding:  1em 3em 3em;
+  background-color: $form-bg;
+  border: 1px solid $form-border;
+  h5 {
+    margin: 1.5em 0 .75em;
+  }
+}
+
+input, 
+textarea, 
+select, 
+button {
+  outline: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  @include border-radius;
+  @include font-size(16);
+  display: block;
+  width: 100%;
+  padding: .5em;
+  border: 1px solid $form-border;
+  -webkit-appearance: none;
+}
+
+textarea {
+  height: 12em;
+  resize: vertical;
+}
+
+select {
+  @include font-size(16);
+  width: 100%;
+}
+
+input {
+  &[type="submit"] {
+    @extend button;
+    width: 100%;
+    margin-top: 1em;
+    padding: .75em 1em;
+    @include break-up($medium){
+      width: 48%;
+    }
+  }
+}
+
+button {
+  @extend %button;
+  @include font-size(18);
+  -webkit-appearance: none;
+}
+
+label {
+  color: $black;
+}
+
+.required {
+  color: $required-field;
+}
+
+fieldset {overflow:hidden}
+.alpha{@include break-up($small){float:left}}
+.omega{@include break-up($small){float:right}}
+.half{@include break-up($small){width:48%}}

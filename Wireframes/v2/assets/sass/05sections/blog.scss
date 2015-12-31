@@ -1,0 +1,53 @@
+/**************************************************
+ BLOG SECTION STYLES
+**************************************************/
+
+.blog-post {
+  @extend %article-page;
+}
+
+.blog-feed {
+  @extend %article-list;
+}
+
+.twitter-block {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $border-color;
+  &__tweet {
+    @include font-size(14);
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 1em;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  &__time {
+    @include font-size(11);
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 0 1.5em 1em;
+    text-align: right;
+  }
+  a {
+    @include font-size(14);
+    position: relative;
+    z-index: 2;
+    display: block;
+    background-color: $lt-gray;
+    padding: .5em 1em;
+    text-align: right;
+    color: $black;
+  }
+  svg {
+    position: absolute;
+    z-index: 1;
+    right: -5em;
+    bottom: -7.5em;
+    height: 30em;
+    width: 30em;
+    fill: lighten($lt-gray,10%);
+  }
+}

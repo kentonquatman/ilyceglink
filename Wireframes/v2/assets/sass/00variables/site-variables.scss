@@ -1,0 +1,136 @@
+/**************************************************
+ FONT STACKS
+**************************************************/
+
+$sans-serif: Helmet, Freesans, sans-serif;
+$serif: Georgia, serif;
+$monospace: "courier new", monospace, serif;
+
+/**************************************************
+ FONT USAGE
+**************************************************/
+
+$body-font: $sans-serif;
+$headline-font: $sans-serif;
+$subheadline-font: $sans-serif;
+$nav-font: $sans-serif;
+$button-font: $sans-serif;
+$code-font: $monospace;
+
+/**************************************************
+ COLOR PALETTE
+**************************************************/
+
+/* Site Colors */
+
+$black: #1a1a1a;
+$dk-gray: #404040;
+$gray: #808080;
+$lt-gray: #bfbfbf;
+$white: #fff;
+
+/**************************************************
+ COLOR USAGE
+**************************************************/
+
+$selection-bg: transparentize($black, 0.75);
+$selection-text: $white;
+
+/* Base Colors */
+
+$body-bg: $white;
+$body-text: $black;
+$headline-color: $dk-gray;
+$subheadline-color: $gray;
+
+$border-color: $lt-gray;
+
+$shadow: transparentize($black,.5);
+
+/* Link Colors */
+
+$link-color: $gray;
+$link-hover: dk-gray;
+
+/* Button Colors */
+
+$button-text: $white;
+$button-bg: $dk-gray;
+
+$form-bg: $lt-gray;
+$form-border: darken($lt-gray, 10%);
+$required-field: $gray;
+
+/* Header Colors */
+
+$header-bg: $gray;
+$header-title-text: $white;
+
+/* Navigation Colors */
+
+$narrow-nav-bg: $lt-gray;
+$narrow-nav-bg-hover: darken($narrow-nav-bg,10%);
+$narrow-nav-text: $dk-gray;
+$narrow-nav-text-hover: $black;
+$narrow-nav-border: 1px solid darken($narrow-nav-bg,10%);
+
+$nav-link-text: $white;
+$nav-link-text-hover: $lt-gray;
+
+$nav-toggle-text: $white;
+$nav-toggle-bg: $dk-gray;
+$nav-toggle-hover: $black;
+$nav-toggle-border: $black;
+
+/* Footer Colors */
+
+$footer-bg: $dk-gray;
+$footer-border: $black;
+$footer-text: $white;
+$footer-link: $lt-gray;
+$footer-hover: $white;
+$footer-headline: $white;
+
+/* Sidebar Colors */
+
+$sidebar-bg: $lt-gray;
+$sidebar-border: $gray;
+$sidebar-cap-bg: $gray;
+$sidebar-cap-text: $white;
+$sidebar-subnav-link-text: $white;
+$sidebar-subnav-link-bg: $gray;
+$sidebar-subnav-link-hover: $dk-gray;
+
+/* Slideshow Colors */
+
+$slides-pager-bg: $dk-gray;
+$slides-pager-marker: $lt-gray;
+$slides-pager-marker-active: $white;
+
+$slides-aside-bg: transparentize($black,.25);
+
+/* Main Section Colors */
+
+$main-bg: $white;
+
+/* Blog Colors */
+
+$blog-date-color: $gray;
+
+/**************************************************
+ UNICODE CHARACTERS
+**************************************************/
+
+$bullet: "\2022";
+$vertical-bar: "\007C";
+$triangle-down: "\25BC";
+$triangle-up: "\25B2";
+$left-quote: "\201C";
+
+/**************************************************
+ SITE SPECIFIC
+**************************************************/
+
+$base-size: 10;
+$side-padding: 5%;
+$fixed-header-padding: 7.5em;

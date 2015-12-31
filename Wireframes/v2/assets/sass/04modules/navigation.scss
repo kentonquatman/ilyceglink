@@ -1,0 +1,227 @@
+/**************************************************
+ NAVIGATION STYLES
+**************************************************/
+
+nav {
+  font-family: $nav-font;
+  ol {
+    list-style: none;
+    margin: 0;
+  }
+  li {
+    margin: 0;
+    line-height: normal;
+  }
+}
+
+/**************************************************
+ HEADER NAVIGATION STYLES
+**************************************************/
+
+.site-navigation {
+  position: relative;
+  display: none;
+  background-color: $narrow-nav-bg;
+  @include break-up($medium){
+    display: block !important;
+    float: right;
+    padding-right: 5em;
+    background-color: transparent;
+  }
+  .primary-nav {
+    @extend %clearfix;
+    border-right: $narrow-nav-border;
+    li {
+      @include font-size(16);
+      position: relative;
+      float: left;
+      width: 50%;
+      border-top: $narrow-nav-border;
+      border-left: $narrow-nav-border;
+      ol {
+        @extend %transition;
+        display: none;
+      }
+      li {
+        @include font-size(14);
+        text-align: center;
+      }
+    }
+    a {
+      display: block;
+      padding: .75em 1em;
+      color: $narrow-nav-text;
+      &:hover, 
+      &:focus {
+        background-color: $narrow-nav-bg-hover;
+        color: $narrow-nav-text-hover;
+      }
+    }
+    @include break-up($medium){
+      float: right;
+      margin-top: .875em;
+      border-right: none;
+      li {
+        @include inline-block;
+        @include font-size(14);
+        float: none;
+        width: auto;
+        margin-left: 1em;
+        padding-bottom: .75em;
+        border-top: none;
+        border-left: none;
+        &:hover {
+          ol {
+            display: block;
+          }
+        }
+        ol {
+          @include border-radius;
+          @include box-shadow;
+          position: absolute;
+          top: 1.5em;
+          left: 50%;
+          width: 9em;
+          padding: .5em 0;
+          margin-left: -4.5em;
+          background-color: $lt-gray;
+        }
+        li {
+          display: block;
+          margin: 0;
+          padding-bottom: 0;
+          a {
+            padding: .5em;
+          }
+        }
+      }
+      a {
+        padding: 0;
+        background-color: transparent;
+        color: $nav-link-text;
+        &:hover,
+        &:focus {
+          background-color: transparent;
+          color: $nav-link-text-hover;
+        }
+      }
+    }
+    @include break-up($large){
+      margin-top: .75em;
+      li {
+        @include font-size(18);
+      }
+    }
+  }
+}
+
+/**************************************************
+ SEARCH BAR STYLES
+**************************************************/
+
+.search-bar {
+  @extend %transition;
+  form {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+  }
+  input {
+    @include border-radius(0);
+    border: none;
+    padding: .75em 1em;
+  }
+  .search-toggle {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    width: 3.6em;
+    background-color: $black;
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 2.4em;
+      width: 2.4em;
+      margin-top: -1.2em;
+      margin-left: -1.2em;
+      fill: $white;
+    }
+  }
+  @include break-up($medium){
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    width: 3.6em;
+    input {
+      padding: .5em 3em .5em 1em;
+    }
+    .search-toggle {
+      display: block;
+      .search-icon {display:block}
+      .close-icon {display:none}
+    }
+    &.open {
+      width: 100%;
+      .search-toggle {
+        .search-icon {display:none}
+        .close-icon {display:block}
+      }
+    }
+  }
+}
+
+/**************************************************
+ NAVIGATION TOGGLE BUTTON
+**************************************************/
+
+.nav-toggle {
+  display: block;
+  position: relative;
+  float: right;
+  width: 5em;
+  padding: 1.5em 0;
+  margin: 1.75em $side-padding 0;
+  @include break-up($medium){
+    display: none;
+  }
+  .line {
+    @extend %transition;
+    @include border-radius(.5em);
+    display: block;
+    overflow: hidden;
+    width: 5em;
+    height: 0;
+    padding-top: .5em;
+    background: $white;
+    &.topbar,
+    &.bottombar {
+      position: absolute;
+      left: 0;
+    }
+    &.topbar {top:.5em}
+    &.bottombar {bottom:.5em}
+  }
+  &:hover,
+  &:focus {
+    .topbar {top:0}
+    .bottombar {bottom:0}
+  }
+  &.open {
+    .topbar {
+      @include rotate(45deg);
+      top: 1.5em;
+    }
+    .middlebar {
+      @include opacity(0);
+    }
+    .bottombar {
+      @include rotate(-45deg);
+      bottom: 1.5em;
+    }
+  }
+}

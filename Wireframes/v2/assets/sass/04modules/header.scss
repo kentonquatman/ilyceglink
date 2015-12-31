@@ -1,0 +1,28 @@
+/**************************************************
+ HEADER STYLES
+**************************************************/
+
+.site-header {
+  @extend %clearfix;
+  background-color: $header-bg;
+  @include break-up($medium){
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    padding: 2em $side-padding;
+  }
+  h1 {
+    @include font-size(36);
+    margin: 0;
+    padding: .5em $side-padding;
+    @include break-up($medium){
+      float: left;
+      padding: 0;
+    }
+    a {
+      color: $header-title-text;
+    }
+  }
+}
