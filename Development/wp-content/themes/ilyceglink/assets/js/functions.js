@@ -35,6 +35,7 @@ var Site = window.Site || {};
     // FITVIDS
     
     $('.media-video').fitVids();
+    $('.post-body').fitVids();
     
   });
 })(jQuery);
